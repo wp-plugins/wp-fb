@@ -94,7 +94,7 @@ function wp_fb_settings(){
 		update_option('wp_fb_old', $_POST['old']);
 		?>
 		<script type="text/javascript">
-		window.location = "<?=$_SERVER['PHP_SELF'].'?page=Wp-Feedburner/wp-fb.php&update=true'?>";
+		window.location = "<?=$_SERVER['PHP_SELF'].'?page=wp-fb/wp-fb.php&update=true'?>";
 		</script>
 		<?
 	}
@@ -107,7 +107,7 @@ function wp_fb_settings(){
 	<div class="wrap">
 		<div id="icon-options-general" class="icon32"><br/></div>
 		<h2>Wp-FeedBurner Settings</h2>
-		<form method="post" action="<?=$_SERVER['PHP_SELF'].'?page=Wp-Feedburner/wp-fb.php'?>">
+		<form method="post" action="<?=$_SERVER['PHP_SELF'].'?page=wp-fb/wp-fb.php'?>">
 		<table class="form-table">
 			<tbody>
 				<tr>
