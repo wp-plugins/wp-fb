@@ -30,24 +30,24 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 ====================
 */
 
-add_action('admin_menu', 'wp-fb' );
-add_action('admin_head', 'wp-fb_show_stats' );
-register_activation_hook(__FILE__, 'wp-fb_activate' );
+add_action('admin_menu', 'wp_fb' );
+add_action('admin_head', 'wp_fb_show_stats' );
+register_activation_hook(__FILE__, 'wp_fb_activate' );
 
-function wp-fb_activate()
+function wp_fb_activate()
 {
-	add_option('wp-fb_uri', '');
-	add_option('wp-fb_old', 0);
+	add_option('wp_fb_uri', '');
+	add_option('wp_fb_old', 0);
 }
 	
-function wp-fb() {	
+function wp_fb() {	
 	//Add options page
-	add_options_page('Wp Feedburner Settings', 'WP-Feed Burner', 8, __FILE__, 'wp-fb_settings');
+	add_options_page('Wp Feedburner Settings', 'WP-Feed Burner', 8, __FILE__, 'wp_fb_settings');
 }
 
-function wp-fb_show_stats(){
-	$feeduri = get_option('wp-fb_uri');
-	$old = get_option('wp-fb_old');
+function wp_fb_show_stats(){
+	$feeduri = get_option('wp_fb_uri');
+	$old = get_option('wp_fb_old');
 	
 	if($old == 'on'){
 		//This is the old Feedburner url
@@ -89,12 +89,12 @@ function wp-fb_show_stats(){
 	}
 }
 
-function wp-fb_settings(){
+function wp_fb_settings(){
 	global $wpdb;
 	
 	if(isset($_POST['feeduri'])){
-		update_option('wp-fb_uri', $_POST['feeduri']);
-		update_option('wp-fb_old', $_POST['old']);
+		update_option('wp_fb_uri', $_POST['feeduri']);
+		update_option('wp_fb_old', $_POST['old']);
 		?>
 		<script type="text/javascript">
 		window.location = "<?=$_SERVER['PHP_SELF'].'?page=wp-fb/wp-fb.php&update=true'?>";
@@ -104,8 +104,8 @@ function wp-fb_settings(){
 
 	if($_GET['update']) echo '<div class="updated"><p><strong>'.__('Settings saved').'</strong></p></div>';
 	
-	$feeduri = get_option('wp-fb_uri');
-	$old = get_option('wp-fb_old');
+	$feeduri = get_option('wp_fb_uri');
+	$old = get_option('wp_fb_old');
 	?>
 	<div class="wrap">
 		<div id="icon-options-general" class="icon32"><br/></div>
