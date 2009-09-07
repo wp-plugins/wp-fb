@@ -10,7 +10,7 @@ Requires at least: 2.7
 
 Tested up to: 2.8.4
 
-Stable tag: 0.1
+Stable tag: 0.2
 
 Wp-Feedburner is a plugin which deals with everything Feedburner but for now, it will simply add your feedburner subscriber count to your Dashboard.
 
